@@ -27,4 +27,4 @@ In this project, I used the following technologies and libraries:
 - [React-icons](https://react-icons.github.io/react-icons/)
 
 ## Demo:
-To use the website, go to [Cara]()
+To use the website, go to [Cara-Ecommerce](https://cara-ecommerce-platform.netlify.app/)
