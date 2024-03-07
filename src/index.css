@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input:focus,
+  button:focus,
+  textarea:focus,
+  select:focus,
+  a:focus {
+    @apply outline-2 outline-offset-4 outline-teal-700;
+  }
+
+  .responsive-container {
+    @apply mx-8 md:mx-16 xl:mx-28 2xl:max-w-[1736px];
+  }
+
+  .header-height {
+    @apply h-[74px];
+  }
+
+  .sec-text {
+    @apply text-gray-500 dark:text-gray-300;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  .heading-2 {
+    @apply text-2xl font-semibold md:text-4xl;
+  }
+  .heading-3 {
+    @apply text-lg font-semibold md:text-3xl;
+  }
+}
