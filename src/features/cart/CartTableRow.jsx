@@ -51,7 +51,7 @@ function CartTableRow({ product }) {
             exit={{ y: -40 }}
             transition={{ type: "tween", ease: "linear", duration: 0.1 }}
           >
-            {quantity}
+            {quantity ? quantity : 1}
           </motion.div>
         </AnimatePresence>
         <Button onClick={() => dispatch(incrementQuantity(id))}>+</Button>
