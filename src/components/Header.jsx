@@ -8,7 +8,7 @@ import SwitchTheme from "./SwitchTheme";
 
 function Header() {
   const [isOpenNav, setIsOpenNav] = useState(true);
-  const [activeTab, setActiveTab] = useState(window.location.pathname);
+  const [activeTab, setActiveTab] = useState("/home");
   const navRef = useRef(null);
 
   function openNav() {
@@ -25,7 +25,7 @@ function Header() {
       transition: {
         when: "acterChildren",
         staggerChildren: 0.05,
-        duration: 0.1,
+        duration: 0.5,
       },
     },
     visible: {
@@ -34,7 +34,7 @@ function Header() {
         when: "beforeChildren",
         staggerChildren: 0.2,
         delayChildren: 0.1,
-        duration: 0.1,
+        duration: 0.5,
       },
     },
   };
@@ -45,7 +45,7 @@ function Header() {
   };
 
   return (
-    <header className="header-height dark:bg-dark-bg sticky left-0 top-0 z-10 bg-gray-100 shadow-sm duration-300">
+    <header className="header-height sticky left-0 top-0 z-10 bg-gray-100 shadow-sm duration-300 dark:bg-dark-bg">
       <nav className="responsive-container flex h-full items-center justify-between overflow-hidden">
         <Logo />
 
@@ -60,10 +60,10 @@ function Header() {
 
         <motion.ul
           ref={navRef}
-          className={`dark:bg-dark-bg fixed right-0 top-0 z-10 flex h-dvh w-[60%] flex-col items-start gap-2 bg-slate-200 p-8 md:relative md:h-auto md:w-fit
+          className={`fixed right-0 top-0 z-10 flex h-dvh w-[60%] flex-col items-start gap-2 bg-slate-200 p-8 dark:bg-dark-bg md:relative md:h-auto md:w-fit
         md:flex-row md:items-center md:justify-end md:bg-transparent md:p-0`}
           variants={listVariants}
-          initial="hidden"
+          initial="visible"
           animate={isOpenNav ? "visible" : "hidden"}
         >
           {/* Button to close navbar */}
@@ -85,7 +85,7 @@ function Header() {
               >
                 <NavLink
                   to={link.to}
-                  className={`relative z-[1] block px-4 py-2 font-medium tracking-wide duration-300 ${activeTab == link.to ? "text-white" : ""}`}
+                  className={`relative z-[1] block px-4 py-2 font-medium tracking-wide duration-300 ${activeTab === link.to ? "text-white" : ""}`}
                 >
                   {link.name}
                 </NavLink>
