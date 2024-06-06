@@ -33,14 +33,16 @@ function FilterShop() {
         name="category"
         id="category"
         aria-label="Filter products by category"
-        className="dark:bg-dark-bg w-full rounded-lg bg-white p-3 shadow-md"
+        className="w-full rounded-lg bg-white p-3 shadow-md dark:bg-dark-bg"
       >
         <option value="">Filter products by category:</option>
         <option value="all">All</option>
         {data?.map((category) => {
           return (
-            <option key={category} value={category}>
-              {category}
+            // According to the API docs, the (category.slug) is the category name formatted.
+            // making it lowercase and replace spaces with dashes "-"
+            <option key={category.slug} value={category.slug}>
+              {category.name}
             </option>
           );
         })}

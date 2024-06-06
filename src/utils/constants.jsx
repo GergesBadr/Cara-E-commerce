@@ -82,8 +82,9 @@ export const ARTICLES = [
   {
     id: 1,
     title: "The cotton - Jersey zip-Up hoodie",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur minima iste quidem quisquam facere ea, explicabo eos velit? Quo, ex.",
+    description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas deleniti deserunt veritatis dolorem eos molestiae quidem, eum,
+      enim expedita magni unde mollitia maiores magnam placeat blanditiis. Quaerat hic temporibus corrupti quasi porro voluptatibus,
+      corporis placeat beatae!`,
     date: "7/03",
     imageSrc: articleOneImg,
     imageAlt: "Woman's back, half face appear, her dress is zipped-up.",

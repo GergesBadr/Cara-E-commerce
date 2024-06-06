@@ -3,7 +3,7 @@ import { ARTICLES } from "../../utils/constants";
 
 function Articles() {
   return (
-    <section className="responsive-container mt-28 space-y-24">
+    <section className="responsive-container mt-28 space-y-24 2xl:mx-auto 2xl:max-w-[1336px]">
       {ARTICLES.map((article) => {
         return (
           <article key={article.id} className="flex flex-col gap-6 md:flex-row">
@@ -15,9 +15,10 @@ function Articles() {
                 src={article.imageSrc}
                 alt={article.imageAlt}
                 loading="lazy"
-                className="aspect-[2/1.5] min-h-[350px] object-cover object-center"
+                className="aspect-[2/1.5] max-h-[400px] w-full object-cover object-center"
               />
             </div>
+
             <div className="basis-1/2 space-y-4">
               <h2 className="heading-2"> {article.title} </h2>
               <p className="sec-text leading-relaxed">{article.description}</p>
