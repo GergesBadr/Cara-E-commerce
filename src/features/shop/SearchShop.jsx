@@ -10,7 +10,7 @@ function SearchShop() {
     e.preventDefault();
 
     if (queue !== "") {
-      searchParams.set("q", queue.replace(" ", "-"));
+      searchParams.set("q", queue);
       setSearchParams(searchParams);
     }
 
@@ -35,10 +35,10 @@ function SearchShop() {
           type="search"
           name="search-product"
           id="search-product"
-          placeholder="e.g Wood shelves..."
+          placeholder="e.g phone..."
           value={queue}
           onChange={(e) => setQueue(e.target.value)}
-          className="dark:bg-dark-bg w-full min-w-[260px] rounded-lg px-4 py-3 shadow-sm md:min-w-[320px]"
+          className="w-full min-w-[260px] rounded-lg px-4 py-3 shadow-sm dark:bg-dark-bg md:min-w-[320px]"
         />
         <button
           aria-label="search"

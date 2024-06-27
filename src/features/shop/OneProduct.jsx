@@ -18,7 +18,16 @@ function OneProduct() {
   if (isLoading) return <Spinner />;
   if (isError) return <ErrorIndicator errorMessage={error} />;
 
-  const { title, thumbnail, description, price, images } = product;
+  const {
+    title,
+    thumbnail,
+    description,
+    price,
+    images,
+    stock,
+    brand,
+    warrantyInformation,
+  } = product;
   const onlyFourImages = images?.slice(0, 4);
 
   function handleChangeThumbnail(e) {
@@ -55,6 +64,7 @@ function OneProduct() {
           })}
         </div>
       </div>
+
       <div className="flex basis-[50%] flex-col gap-4 lg:basis-[60%]">
         <h1 className="heading-1"> {title} </h1>
         <p className="text-2xl font-medium"> {formatCurrency(price)} </p>
@@ -64,14 +74,26 @@ function OneProduct() {
         >
           Add to cart
         </Button>
-        <div className="space-y-2">
-          <p className="text-xl font-medium">Product Details:</p>
+        <div className="space-y-4">
           <p className="sec-text text-lg">
             {description}
             <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
             aliquam optio nisi, soluta eius ipsam possimus. Voluptatem voluptas
             ratione dolor. Alias natus porro ex atque.
+          </p>
+
+          <p className="text-lg font-medium">
+            Stock: <span className="sec-text font-normal"> {stock}</span>
+          </p>
+
+          <p className="text-lg font-medium">
+            Brand: <span className="sec-text font-normal"> {brand}</span>
+          </p>
+
+          <p className="text-lg font-medium">
+            Warranty:
+            <span className="sec-text font-normal"> {warrantyInformation}</span>
           </p>
         </div>
       </div>

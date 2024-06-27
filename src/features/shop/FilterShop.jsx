@@ -27,15 +27,16 @@ function FilterShop() {
   if (isError) return <ErrorIndicator errorMessage={error} />;
 
   return (
-    <form className="w-full sm:w-auto">
+    <form className="w-full sm:w-auto ">
+      <label htmlFor="category" className="mb-2 block font-medium">
+        Filter products by category:
+      </label>
       <select
         onChange={handleFilter}
         name="category"
         id="category"
-        aria-label="Filter products by category"
-        className="w-full rounded-lg bg-white p-3 shadow-md dark:bg-dark-bg"
+        className="w-full min-w-[260px] rounded-lg bg-white p-3 shadow-md dark:bg-dark-bg md:min-w-[320px]"
       >
-        <option value="">Filter products by category:</option>
         <option value="all">All</option>
         {data?.map((category) => {
           return (

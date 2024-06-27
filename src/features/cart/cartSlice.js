@@ -23,7 +23,8 @@ export const cartSlice = createSlice({
       if (productInCart) {
         toast("Product already in cart.");
       } else {
-        state.cart.push(action.payload);
+        const newProduct = { ...action.payload, quantity: 1 };
+        state.cart.push(newProduct);
         toast.success("Product added to cart!");
         localStorage.setItem("cart", JSON.stringify(state.cart));
       }
@@ -78,6 +79,10 @@ export function cartTotalPrice(state) {
     (acc, curr) => acc + curr.price * curr.quantity,
     0,
   );
+}
+
+export function cartTotalQuantity(state) {
+  return state.cart.cart.reduce((acc, curr) => acc + curr.quantity, 0);
 }
 
 export default cartSlice.reducer;

@@ -10,7 +10,7 @@ export function useProducts() {
   const currPage = Number(searchParams.get("page")) || 1;
 
   let query = "";
-  let paginate = "?limit=0";
+  let paginate = "limit=0";
 
   if (category !== "all") {
     query = `/category/${category}`;
@@ -22,14 +22,14 @@ export function useProducts() {
 
   if (currPage) {
     const from = (currPage - 1) * PRODUCTS_PER_PAGE;
-    paginate = `?skip=${from}&limit=${PRODUCTS_PER_PAGE}`;
+    paginate = `skip=${from}&limit=${PRODUCTS_PER_PAGE}`;
   }
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products", query, paginate],
     queryFn: async function () {
       const res = await fetch(
-        `https://dummyjson.com/products${query}${paginate}`,
+        `https://dummyjson.com/products${query}${searchedValue ? "&" : "?"}${paginate}`,
       );
       const data = await res.json();
       return data;

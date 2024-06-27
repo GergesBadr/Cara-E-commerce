@@ -5,8 +5,11 @@ import { useRef, useState } from "react";
 import { NAV_LINKS } from "../utils/constants";
 import Logo from "./Logo";
 import SwitchTheme from "./SwitchTheme";
+import { useSelector } from "react-redux";
+import { cartTotalQuantity } from "../features/cart/cartSlice";
 
 function Header() {
+  const totalQuantity = useSelector(cartTotalQuantity);
   const [isOpenNav, setIsOpenNav] = useState(true);
   const [activeTab, setActiveTab] = useState("/home");
   const navRef = useRef(null);
@@ -78,16 +81,29 @@ function Header() {
           {NAV_LINKS.map((link) => {
             return (
               <motion.li
-                key={link.name}
+                key={link.id}
                 onClick={() => setActiveTab(link.to)}
                 className="relative"
                 variants={itemVariants}
               >
                 <NavLink
                   to={link.to}
+                  aria-label={
+                    link.to === "/cart"
+                      ? `Cart. total quantity is: ${totalQuantity}`
+                      : `${link.name}`
+                  }
                   className={`relative z-[1] block px-4 py-2 font-medium tracking-wide duration-300 ${activeTab === link.to ? "text-white" : ""}`}
                 >
                   {link.name}
+                  {link.to === "/cart" && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute -right-1 -top-2 flex size-6 items-center justify-center rounded-full bg-red-400 p-1 font-bold"
+                    >
+                      {totalQuantity}
+                    </span>
+                  )}
                 </NavLink>
                 {activeTab === link.to && (
                   <motion.span

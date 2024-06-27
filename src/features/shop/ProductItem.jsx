@@ -31,16 +31,18 @@ function ProductItem({ product, index }) {
 
   return (
     <motion.div
-      className="dark:bg-dark-bg relative flex flex-col gap-4 rounded-3xl border bg-white p-4 shadow-sm dark:border-2 dark:border-gray-800"
+      className="relative flex flex-col gap-4 rounded-3xl border bg-white p-4 shadow-sm dark:border-2 dark:border-gray-800 dark:bg-dark-bg"
       variants={productItemVariants}
       initial={"hidden"}
       whileInView={"visible"}
       custom={index}
       viewport={{ once: true }}
     >
-      <div className="absolute left-2 top-2 z-[1] flex h-12 w-12 items-center justify-center rounded-full bg-teal-700 p-1 text-sm text-gray-100">
-        {`${discountPercentage.toFixed()}%`}
-      </div>
+      {discountPercentage >= 1 && (
+        <div className="absolute left-2 top-2 z-[1] flex h-12 w-12 items-center justify-center rounded-full bg-teal-700 p-1 text-sm text-gray-100">
+          {`${discountPercentage.toFixed()}%`}
+        </div>
+      )}
 
       <div className="overflow-hidden rounded-lg">
         <motion.img

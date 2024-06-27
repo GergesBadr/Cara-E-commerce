@@ -5,6 +5,7 @@ import {
   FaPinterest,
   FaYoutube,
 } from "react-icons/fa";
+import { HiOutlineShoppingCart } from "react-icons/hi2";
 
 import articleOneImg from "../assets/articles/article-1.jpg";
 import articleTwoImg from "../assets/articles/article-2.jpg";
@@ -21,11 +22,15 @@ import support from "../assets/features/support.png";
 
 // Header
 export const NAV_LINKS = [
-  { name: "Home", to: "/home" },
-  { name: "Shop", to: "/shop" },
-  { name: "Blog", to: "/blog" },
-  { name: "Contact", to: "/contact" },
-  { name: "Cart", to: "/cart" },
+  { id: 1, name: "Home", to: "/home" },
+  { id: 2, name: "Shop", to: "/shop" },
+  { id: 3, name: "Blog", to: "/blog" },
+  { id: 4, name: "Contact", to: "/contact" },
+  {
+    id: 5,
+    name: <HiOutlineShoppingCart aria-label="Cart" className="size-6" />,
+    to: "/cart",
+  },
 ];
 
 // Features
